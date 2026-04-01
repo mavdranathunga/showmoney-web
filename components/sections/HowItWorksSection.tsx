@@ -34,7 +34,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works-overview" className="py-24 bg-navy-950">
+    <section id="how-it-works-overview" className="py-24 bg-theme-gradient border-y border-card-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">The Process</span>
@@ -64,8 +64,8 @@ export default function HowItWorksSection() {
                     </div>
                     <span className="text-[11px] font-bold text-gold-500/60 tracking-widest">STEP {step.step}</span>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-3 leading-snug">{step.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-foreground font-bold text-lg mb-3 leading-snug">{step.title}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{step.description}</p>
                 </div>
               )
             })}

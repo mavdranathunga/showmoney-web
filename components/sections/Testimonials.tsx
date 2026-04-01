@@ -2,24 +2,24 @@ import { Star, Quote } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Maria Santos',
-    location: 'Manila',
+    name: 'Dilshan Perera',
+    location: 'Colombo',
     visa: 'Schengen (France)',
     rating: 5,
-    text: 'I was so nervous about my Schengen application, but ShowMoney Pro walked me through everything. Got approved in just 2 weeks! Their proof-of-funds letter was professional and exactly what the embassy wanted.',
-    avatar: 'MS',
+    text: 'ShowMoney Pro was a lifesaver for my Schengen visa. The proof-of-funds letter they prepared was exactly what the embassy was looking for. Approved in 10 days!',
+    avatar: 'DP',
   },
   {
-    name: 'Jose Reyes',
-    location: 'Cebu City',
+    name: 'Anjali Rajapaksa',
+    location: 'Kandy',
     visa: 'US Tourist Visa (B-2)',
     rating: 5,
-    text: 'Had my US visa rejected twice before. ShowMoney Pro reviewed my full financial package, helped me present my savings properly, and I finally got approved! Worth every peso.',
-    avatar: 'JR',
+    text: 'I was worried about my US visa after a previous rejection. The team help me consolidate my papers and present my case clearly. Highly recommended!',
+    avatar: 'AR',
   },
   {
-    name: 'Anna Cruz',
-    location: 'Davao',
+    name: 'Kasun Silva',
+    location: 'Negombo',
     visa: 'Japan Tourist Visa',
     rating: 5,
     text: 'Super fast! Submitted my requirements Monday evening, received my documents by Wednesday. The Japan embassy accepted everything without any questions. Highly recommend!',
@@ -27,7 +27,7 @@ const testimonials = [
   },
   {
     name: 'Carlo Mendoza',
-    location: 'Quezon City',
+    location: 'Galle',
     visa: 'UK Standard Visitor',
     rating: 5,
     text: 'Very professional service. They even reminded me about additional documents I would have missed. The document review service alone was a game-changer. Visa approved!',
@@ -53,16 +53,15 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-navy-950">
+    <section id="testimonials" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">Client Stories</span>
-          <h2 className="section-title mb-4">
-            Real People,{' '}
-            <span className="gold-text">Real Approvals</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-4">
+            Trusted by <span className="gold-text">Sri Lankan Travelers</span> Worldwide
           </h2>
-          <p className="section-subtitle mx-auto">
-            Over 5,000 Filipino travelers have trusted us with their visa documentation. Here's what they say.
+          <p className="text-muted max-w-2xl mx-auto font-medium">
+            Over 5,000 Sri Lankan travelers have trusted us with their visa documentation. Here's what they say.
           </p>
         </div>
 
@@ -71,12 +70,12 @@ export default function Testimonials() {
             <div key={t.name} className="glass-card p-6 flex flex-col gap-4 hover:border-gold-500/20 transition-all hover:-translate-y-1 duration-300">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-navy-900 font-bold text-sm shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-background font-bold text-sm shrink-0">
                     {t.avatar}
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">{t.name}</div>
-                    <div className="text-slate-400 text-xs">{t.location}</div>
+                    <div className="text-foreground font-semibold text-sm">{t.name}</div>
+                    <div className="text-muted text-xs">{t.location}</div>
                   </div>
                 </div>
                 <Quote size={18} className="text-gold-500/40 shrink-0 mt-1" />
@@ -88,9 +87,9 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-slate-300 text-sm leading-relaxed flex-1">"{t.text}"</p>
+              <p className="text-foreground/80 text-sm leading-relaxed flex-1">"{t.text}"</p>
 
-              <div className="pt-3 border-t border-white/5">
+              <div className="pt-3 border-t border-card-border">
                 <span className="inline-flex items-center gap-1.5 text-xs text-gold-500/80 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   {t.visa}

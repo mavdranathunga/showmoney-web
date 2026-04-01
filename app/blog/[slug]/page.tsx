@@ -11,7 +11,7 @@ import { blogPosts } from '../page'
 const blogContent: Record<string, { intro: string; sections: { heading: string; body: string }[] }> = {
   'how-much-show-money-schengen-visa': {
     intro:
-      'Applying for a Schengen visa is a major milestone for many Filipino travelers. European embassies are strict about financial documentation, and knowing exactly how much "show money" you need — and how to present it — can make the difference between approval and rejection.',
+      'Applying for a Schengen visa is a major milestone for many Sri Lankan travelers. European embassies are strict about financial documentation, and knowing exactly how much "show money" you need — and how to present it — can make the difference between approval and rejection.',
     sections: [
       {
         heading: 'The Official €100 Per Day Rule',
@@ -37,11 +37,11 @@ const blogContent: Record<string, { intro: string; sections: { heading: string; 
   },
   'us-tourist-visa-bank-statement-tips': {
     intro:
-      'The US B-2 tourist visa is one of the most sought-after — and most scrutinized — visas for Filipino travelers. US consular officers are trained to detect financial inconsistencies. Here\'s what actually works.',
+      'The US B-2 tourist visa is one of the most sought-after — and most scrutinized — visas for Sri Lankan travelers. US consular officers are trained to detect financial inconsistencies. Here\'s what actually works.',
     sections: [
       {
         heading: 'The US Embassy Doesn\'t Publish a Fixed Amount',
-        body: 'Unlike Schengen, the US embassy has no published minimum "show money" requirement. What they\'re looking for is evidence that you can fund your trip, have strong economic ties to the Philippines, and have a clear reason to return home.',
+        body: 'Unlike Schengen, the US embassy has no published minimum "show money" requirement. What they\'re looking for is evidence that you can fund your trip, have strong economic ties to Sri Lanka, and have a clear reason to return home.',
       },
       {
         heading: 'What Amount Is "Enough"?',
@@ -53,13 +53,13 @@ const blogContent: Record<string, { intro: string; sections: { heading: string; 
       },
       {
         heading: 'Strengthen Your Application Beyond The Bank Balance',
-        body: 'Property ownership, stable employment with a return work date, existing travel history, and family ties in the Philippines all contribute to a stronger overall financial profile. The bank balance alone is rarely what wins or loses a US visa.',
+        body: 'Property ownership, stable employment with a return work date, existing travel history, and family ties in Sri Lanka all contribute to a stronger overall financial profile. The bank balance alone is rarely what wins or loses a US visa.',
       },
     ],
   },
   'how-to-avoid-show-money-rejection': {
     intro:
-      'After helping over 5,000 Filipino travelers with their financial documentation, we\'ve seen the same mistakes come up again and again. Here are the 7 most common errors — and exactly how to avoid each one.',
+      'After helping over 5,000 Sri Lankan travelers with their financial documentation, we\'ve seen the same mistakes come up again and again. Here are the 7 most common errors — and exactly how to avoid each one.',
     sections: [
       {
         heading: 'Mistake 1: Temporary Fund Parking',
@@ -67,7 +67,7 @@ const blogContent: Record<string, { intro: string; sections: { heading: string; 
       },
       {
         heading: 'Mistake 2: Using Multiple Small Accounts Instead of One Strong Account',
-        body: 'Spreading ₱200,000 across 5 accounts looks weaker than having ₱200,000 consolidated in one savings account with a consistent history. Consolidation shows financial discipline.',
+        body: 'Spreading Rs. 1,000,000 across 5 accounts looks weaker than having Rs. 1,000,000 consolidated in one savings account with a consistent history. Consolidation shows financial discipline.',
       },
       {
         heading: 'Mistake 3: Not Providing Bank Certificates',
@@ -75,7 +75,7 @@ const blogContent: Record<string, { intro: string; sections: { heading: string; 
       },
       {
         heading: 'Mistake 4: Inconsistent Financial Story',
-        body: 'If your payslip shows ₱30,000/month but your bank shows ₱500,000 in savings with no clear explanation of how, that inconsistency signals a red flag. Your income, expenses, and savings should tell a coherent, believable story.',
+        body: 'If your payslip shows Rs. 100,000/month but your bank shows Rs. 3,000,000 in savings with no clear explanation of how, that inconsistency signals a red flag. Your income, expenses, and savings should tell a coherent, believable story.',
       },
       {
         heading: 'Mistake 5: Submitting Screenshot Bank Statements',
@@ -91,6 +91,15 @@ const blogContent: Record<string, { intro: string; sections: { heading: string; 
       },
     ],
   },
+}
+
+// Update the keys for Japan if changed in the list
+blogContent['japan-visa-financial-requirements-sri-lanka'] = {
+  intro: 'Japan is a dream destination for many Sri Lankans. Here is how to prepare your funds.',
+  sections: [
+    { heading: 'Fixed Deposits vs Savings', body: 'Sri Lankan banks often offer better FD rates.' },
+    { heading: 'Embassy of Japan in Colombo', body: 'They require original bank certificates.' }
+  ]
 }
 
 // Generate static params for all blog slugs
@@ -117,50 +126,50 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const nextPost = blogPosts[currentIdx + 1]
 
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-80 h-80 bg-gold-500/8 -top-10 right-0" />
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-slate-400 hover:text-gold-400 transition-colors text-sm mb-8">
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-gold-500 text-sm font-bold mb-8 hover:gap-3 transition-all">
               <ArrowLeft size={16} /> Back to Blog
             </Link>
-            <span className="section-badge mb-4 inline-flex">{post.category}</span>
-            <h1 className="section-title text-4xl sm:text-5xl mb-6 text-balance">{post.title}</h1>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
-              <span className="flex items-center gap-1.5"><Calendar size={14} /> {post.date}</span>
-              <span className="flex items-center gap-1.5"><Clock size={14} /> {post.readTime}</span>
+            <div className="flex items-center justify-center sm:justify-start gap-3 mb-6">
+              <span className="section-badge font-bold uppercase tracking-wider">{post.category}</span>
+              <span className="text-muted text-sm font-bold">{post.date} · {post.readTime}</span>
             </div>
+            <h1 className="section-title text-4xl sm:text-5xl lg:text-5xl mb-8">
+              {post.title}
+            </h1>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-16 bg-navy-900">
+        <section className="py-16 bg-background">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {content ? (
-              <article className="prose prose-invert prose-lg max-w-none">
-                <p className="text-slate-300 text-lg leading-relaxed mb-10 border-l-4 border-gold-500 pl-5">
+              <article className="prose prose-slate dark:prose-invert prose-lg max-w-none">
+                <p className="text-foreground/80 text-xl font-medium leading-relaxed mb-10 border-l-4 border-gold-500 pl-5 italic">
                   {content.intro}
                 </p>
                 {content.sections.map((section, idx) => (
                   <div key={idx} className="mb-10">
-                    <h2 className="text-white text-2xl font-bold font-serif mb-4">{section.heading}</h2>
-                    <p className="text-slate-400 leading-relaxed">{section.body}</p>
+                    <h2 className="text-foreground text-2xl font-bold font-serif mb-4">{section.heading}</h2>
+                    <p className="text-muted font-medium leading-relaxed transition-colors duration-300">{section.body}</p>
                   </div>
                 ))}
               </article>
             ) : (
-              <div className="glass-card p-12 text-center">
-                <p className="text-slate-400">Full article content coming soon.</p>
+              <div className="glass-card p-12 text-center border-card-border">
+                <p className="text-muted font-bold">Full article content coming soon.</p>
               </div>
             )}
 
             {/* CTA Box */}
-            <div className="mt-16 glass-card p-8 border border-gold-500/20 text-center">
-              <h3 className="text-white text-xl font-bold font-serif mb-3">Ready to Get Your Documents?</h3>
-              <p className="text-slate-400 text-sm mb-6">
+            <div className="mt-16 glass-card p-8 border border-gold-500/20 bg-gold-500/5 text-center shadow-lg transition-transform hover:scale-[1.01]">
+              <h3 className="text-foreground text-xl font-bold font-serif mb-3">Ready to Get Your Documents?</h3>
+              <p className="text-muted text-sm mb-6 font-medium">
                 Send us your details and we'll have your proof-of-funds documentation ready in 24–48 hours.
               </p>
               <Link href="/contact" className="btn-primary">
@@ -171,15 +180,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             {/* Post Navigation */}
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {prevPost && (
-                <Link href={`/blog/${prevPost.slug}`} className="glass-card-hover p-5 flex flex-col gap-1">
-                  <span className="text-slate-500 text-xs flex items-center gap-1"><ArrowLeft size={12} /> Previous</span>
-                  <span className="text-white text-sm font-semibold line-clamp-2">{prevPost.title}</span>
+                <Link href={`/blog/${prevPost.slug}`} className="glass-card-hover p-5 flex flex-col gap-1 border-card-border group">
+                  <span className="text-muted text-xs flex items-center gap-1 font-bold uppercase"><ArrowLeft size={12} /> Previous</span>
+                  <span className="text-foreground text-sm font-bold line-clamp-2 group-hover:text-gold-500 transition-colors uppercase tracking-tight">{prevPost.title}</span>
                 </Link>
               )}
               {nextPost && (
-                <Link href={`/blog/${nextPost.slug}`} className={`glass-card-hover p-5 flex flex-col gap-1 ${!prevPost ? 'col-span-full sm:col-start-2' : ''}`}>
-                  <span className="text-slate-500 text-xs flex items-center gap-1 justify-end">Next <ArrowRight size={12} /></span>
-                  <span className="text-white text-sm font-semibold text-right line-clamp-2">{nextPost.title}</span>
+                <Link href={`/blog/${nextPost.slug}`} className={`glass-card-hover p-5 flex flex-col gap-1 border-card-border group ${!prevPost ? 'col-span-full sm:col-start-2' : ''}`}>
+                  <span className="text-muted text-xs flex items-center gap-1 justify-end font-bold uppercase">Next <ArrowRight size={12} /></span>
+                  <span className="text-foreground text-sm font-bold text-right line-clamp-2 group-hover:text-gold-500 transition-colors uppercase tracking-tight">{nextPost.title}</span>
                 </Link>
               )}
             </div>
@@ -188,6 +197,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </main>
       <Footer />
       <FloatingChat />
-    </>
+    </div>
   )
 }

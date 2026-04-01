@@ -12,14 +12,14 @@ export default function PrivacyPolicyPage() {
     <>
       <Navbar />
       <main className="pt-20">
-        <section className="py-20 bg-navy-gradient">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="section-title text-5xl mb-4">Privacy <span className="gold-text">Policy</span></h1>
-            <p className="text-slate-400 text-sm">Last updated: March 1, 2024</p>
+            <p className="text-muted text-sm font-medium">Last updated: March 1, 2024</p>
           </div>
         </section>
-        <section className="py-16 bg-navy-900">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-400 leading-relaxed">
+        <section className="py-16 bg-background">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-muted leading-relaxed font-medium">
             {[
               {
                 title: '1. Information We Collect',
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
               },
             ].map((section) => (
               <div key={section.title}>
-                <h2 className="text-white font-bold text-xl mb-3 font-serif">{section.title}</h2>
+                <h2 className="text-foreground font-bold text-xl mb-3 font-serif">{section.title}</h2>
                 <p>{section.body}</p>
               </div>
             ))}

@@ -27,7 +27,7 @@ export default function FAQSnippet() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
-    <section id="faq-snippet" className="py-24 bg-navy-900">
+    <section id="faq-snippet" className="py-24 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">FAQ</span>
@@ -45,11 +45,11 @@ export default function FAQSnippet() {
             <div key={idx} className="glass-card overflow-hidden">
               <button
                 id={`faq-toggle-${idx}`}
-                className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-white/2 transition-colors"
+                className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-foreground/5 transition-colors"
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 aria-expanded={openIdx === idx}
               >
-                <span className="text-white font-semibold text-sm sm:text-base">{faq.q}</span>
+                <span className="text-foreground font-semibold text-sm sm:text-base">{faq.q}</span>
                 <ChevronDown
                   size={18}
                   className={`text-gold-400 shrink-0 transition-transform duration-300 ${
@@ -58,7 +58,7 @@ export default function FAQSnippet() {
                 />
               </button>
               {openIdx === idx && (
-                <div className="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                <div className="px-6 pb-6 text-muted text-sm leading-relaxed border-t border-card-border pt-4">
                   {faq.a}
                 </div>
               )}

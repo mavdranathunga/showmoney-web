@@ -18,7 +18,7 @@ const visaTypes = [
 
 export default function VisaTypesSection() {
   return (
-    <section id="visa-types-overview" className="py-24 bg-navy-900">
+    <section id="visa-types-overview" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">Coverage</span>
@@ -38,15 +38,15 @@ export default function VisaTypesSection() {
               className="glass-card-hover p-5 flex flex-col items-center text-center gap-2"
             >
               <span className="text-3xl">{visa.flag}</span>
-              <span className="text-white font-semibold text-sm leading-tight">{visa.country}</span>
-              <span className="text-slate-400 text-xs">{visa.visa} Visa</span>
+              <span className="text-foreground font-semibold text-sm leading-tight">{visa.country}</span>
+              <span className="text-muted text-xs">{visa.visa} Visa</span>
               <span className="text-gold-400 text-xs font-bold">{visa.amount}</span>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-slate-400 text-sm mb-6">Don't see your destination? We cover 50+ countries.</p>
+          <p className="text-muted text-sm mb-6">Don't see your destination? We cover 50+ countries.</p>
           <Link href="/visa-types" className="btn-primary">
             See All Visa Types <ArrowRight size={18} />
           </Link>

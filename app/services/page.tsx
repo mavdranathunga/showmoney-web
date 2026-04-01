@@ -28,8 +28,8 @@ const services = [
     ],
     turnaround: '24–48 hours',
     color: 'from-gold-500/20 to-gold-600/5',
-    iconColor: 'text-gold-400',
-    borderColor: 'border-gold-500/20',
+    iconColor: 'text-gold-500',
+    borderColor: 'border-card-border',
   },
   {
     id: 'bank-statement',
@@ -47,8 +47,8 @@ const services = [
     ],
     turnaround: '24–48 hours',
     color: 'from-blue-500/20 to-blue-600/5',
-    iconColor: 'text-blue-400',
-    borderColor: 'border-blue-500/20',
+    iconColor: 'text-blue-500',
+    borderColor: 'border-card-border',
   },
   {
     id: 'consultation',
@@ -66,8 +66,8 @@ const services = [
     ],
     turnaround: 'Same day',
     color: 'from-purple-500/20 to-purple-600/5',
-    iconColor: 'text-purple-400',
-    borderColor: 'border-purple-500/20',
+    iconColor: 'text-purple-500',
+    borderColor: 'border-card-border',
   },
   {
     id: 'document-review',
@@ -85,8 +85,8 @@ const services = [
     ],
     turnaround: '24 hours',
     color: 'from-emerald-500/20 to-emerald-600/5',
-    iconColor: 'text-emerald-400',
-    borderColor: 'border-emerald-500/20',
+    iconColor: 'text-emerald-500',
+    borderColor: 'border-card-border',
   },
 ]
 
@@ -96,11 +96,11 @@ export default function ServicesPage() {
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-96 h-96 bg-gold-500/10 -top-20 -right-20" />
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="hero-glow w-96 h-96 bg-gold-500/10 -top-20 -left-20" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-badge mb-6 inline-flex">Services</span>
-            <h1 className="section-title text-5xl sm:text-6xl mb-6">
+            <h1 className="section-title mb-6">
               Professional Visa{' '}
               <span className="gold-text">Documentation Services</span>
             </h1>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services */}
-        <section className="py-20 bg-navy-900">
+        <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             {services.map((service, idx) => {
               const Icon = service.icon
@@ -119,38 +119,38 @@ export default function ServicesPage() {
                 <div
                   key={service.id}
                   id={service.id}
-                  className={`glass-card p-8 sm:p-12 border ${service.borderColor} scroll-mt-28`}
+                  className={`glass-card p-8 sm:p-12 border ${service.borderColor} scroll-mt-28 border-card-border shadow-sm`}
                 >
                   <div className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start`}>
                     <div className="lg:w-1/2">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 border border-white/5`}>
+                      <div className={`w-16 h-16 rounded-2xl bg-foreground/5 flex items-center justify-center mb-6 border border-card-border`}>
                         <Icon size={30} className={service.iconColor} />
                       </div>
                       <div className="section-badge mb-4 inline-flex">{service.turnaround} turnaround</div>
-                      <h2 className="text-3xl font-bold font-serif text-white mb-2">{service.title}</h2>
+                      <h2 className="text-3xl font-bold font-serif text-foreground mb-2">{service.title}</h2>
                       <p className={`text-sm font-semibold mb-4 ${service.iconColor}`}>{service.tagline}</p>
-                      <p className="text-slate-400 leading-relaxed mb-8">{service.description}</p>
+                      <p className="text-muted leading-relaxed mb-8">{service.description}</p>
                       <Link href="/contact" className="btn-primary">
                         Get This Service <ArrowRight size={18} />
                       </Link>
                     </div>
                     <div className="lg:w-1/2">
-                      <div className="p-6 rounded-2xl bg-white/2 border border-white/5">
-                        <h3 className="text-white font-semibold mb-5 flex items-center gap-2">
-                          <Shield size={16} className="text-gold-400" />
+                      <div className="p-6 rounded-2xl bg-foreground/5 border border-card-border">
+                        <h3 className="text-foreground font-semibold mb-5 flex items-center gap-2">
+                          <Shield size={16} className="text-gold-500" />
                           What's Included
                         </h3>
                         <ul className="space-y-3">
                           {service.features.map((f) => (
-                            <li key={f} className="flex items-start gap-3 text-slate-300 text-sm">
+                            <li key={f} className="flex items-start gap-3 text-foreground/80 text-sm font-medium">
                               <CheckCircle size={16} className="text-gold-500 shrink-0 mt-0.5" />
                               {f}
                             </li>
                           ))}
                         </ul>
-                        <div className="mt-6 pt-5 border-t border-white/5 flex items-center gap-2 text-sm text-slate-400">
-                          <Clock size={14} className="text-gold-400" />
-                          Delivery: <span className="text-white font-medium">{service.turnaround}</span>
+                        <div className="mt-6 pt-5 border-t border-card-border flex items-center gap-2 text-sm text-muted">
+                          <Clock size={14} className="text-gold-500" />
+                          Delivery: <span className="text-foreground font-medium">{service.turnaround}</span>
                         </div>
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-navy-950 text-center">
+        <section className="py-16 bg-background text-center">
           <div className="max-w-2xl mx-auto px-4">
             <h2 className="section-title mb-4">Not Sure Which Service You Need?</h2>
             <p className="section-subtitle mx-auto mb-8">Chat with our team — we'll help you figure out exactly what your embassy requires.</p>

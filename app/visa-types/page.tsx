@@ -3,160 +3,126 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingChat from '@/components/FloatingChat'
 import Link from 'next/link'
-import { ArrowRight, Info } from 'lucide-react'
+import { MapPin, ArrowRight, CheckCircle, Info } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Visa Types We Support',
+  title: 'Visa Types & Requirements',
   description:
-    'ShowMoney Pro provides proof-of-funds documentation for Schengen, US, UK, Japan, Australia, Canada, South Korea, New Zealand visas and 50+ more destinations.',
+    'Detailed financial requirements and show money guides for popular visa destinations including Schengen, US, UK, Japan, and Australia for Sri Lankan applicants.',
 }
 
-const regions = [
+const visaTypes = [
   {
     region: 'Europe (Schengen)',
-    description: 'All 27 Schengen area countries share the same financial requirement framework. We create documentation that satisfies the consulate you\'re applying through.',
-    requiredAmount: '€100/day · min. €3,000 recommended',
-    countries: [
-      { flag: '🇩🇪', name: 'Germany' },
-      { flag: '🇫🇷', name: 'France' },
-      { flag: '🇮🇹', name: 'Italy' },
-      { flag: '🇪🇸', name: 'Spain' },
-      { flag: '🇳🇱', name: 'Netherlands' },
-      { flag: '🇨🇭', name: 'Switzerland' },
-      { flag: '🇦🇹', name: 'Austria' },
-      { flag: '🇧🇪', name: 'Belgium' },
-      { flag: '🇬🇷', name: 'Greece' },
-      { flag: '🇵🇹', name: 'Portugal' },
-      { flag: '🇸🇪', name: 'Sweden' },
-      { flag: '🇩🇰', name: 'Denmark' },
-    ],
-    color: 'border-blue-500/20 bg-blue-500/5',
-    badge: 'blue',
+    countries: 'Germany, France, Italy, Spain, etc.',
+    amount: '€3,000 – €8,000+',
+    requirement: '3–6 months bank statements, ADB focus, and a professional proof-of-funds letter.',
+    description: 'Schengen embassies are among the strictest. They look for consistent savings and a clear source of funds that justifies your stay.',
   },
   {
-    region: 'Americas',
-    description: 'US and Canada have rigorous financial screening. Our documentation helps demonstrate strong ties to the Philippines and sufficient travel funds.',
-    requiredAmount: 'USD $3,000–$10,000+ depending on trip',
-    countries: [
-      { flag: '🇺🇸', name: 'United States' },
-      { flag: '🇨🇦', name: 'Canada' },
-    ],
-    color: 'border-red-500/20 bg-red-500/5',
-    badge: 'red',
+    region: 'North America',
+    countries: 'USA (B-2), Canada (Visitor)',
+    amount: '$5,000 – $10,000+',
+    requirement: 'Bank certificate, employment records, and demonstration of strong ties to Sri Lanka.',
+    description: 'US and Canada have rigorous financial screening. Our documentation helps demonstrate strong ties to Sri Lanka and sufficient travel funds.',
   },
   {
-    region: 'United Kingdom',
-    description: 'The UK has left the EU but maintains its own strict financial requirements. We prepare documentation aligned with UKVI standards.',
-    requiredAmount: '£2,000–£5,000+ recommended',
-    countries: [{ flag: '🇬🇧', name: 'United Kingdom' }],
-    color: 'border-indigo-500/20 bg-indigo-500/5',
-    badge: 'indigo',
-  },
-  {
-    region: 'Asia',
-    description: 'Japan, South Korea, and Singapore have clear financial benchmarks. Our documents are formatted to match each country\'s specific embassy requirements.',
-    requiredAmount: 'Varies by country (₩3M+, ¥300K+)',
-    countries: [
-      { flag: '🇯🇵', name: 'Japan' },
-      { flag: '🇰🇷', name: 'South Korea' },
-      { flag: '🇸🇬', name: 'Singapore' },
-      { flag: '🇹🇭', name: 'Thailand' },
-      { flag: '🇨🇳', name: 'China' },
-      { flag: '🇹🇼', name: 'Taiwan' },
-    ],
-    color: 'border-orange-500/20 bg-orange-500/5',
-    badge: 'orange',
+    region: 'East Asia',
+    countries: 'Japan, South Korea, China',
+    amount: '¥300,000 – ¥800,000+',
+    requirement: 'Original bank certificate, income tax returns, and travel itinerary mapping.',
+    description: 'Japan and Korea require high precision in financial declarations. We ensure your certificates match your declared income and savings.',
   },
   {
     region: 'Oceania',
-    description: 'Australia and New Zealand process visa applications online but still require strong financial evidence to demonstrate intention to return home.',
-    requiredAmount: 'AUD $5,000+ / NZD $5,000+',
-    countries: [
-      { flag: '🇦🇺', name: 'Australia' },
-      { flag: '🇳🇿', name: 'New Zealand' },
-    ],
-    color: 'border-emerald-500/20 bg-emerald-500/5',
-    badge: 'emerald',
+    countries: 'Australia, New Zealand',
+    amount: '$5,000 – $12,000+',
+    requirement: 'Consolidated accounts, proof of assets, and clear funding evidence.',
+    description: 'Australian home affairs look for genuine access to funds. We help you present a clean, consolidated financial profile for your E-visa.',
   },
   {
     region: 'Middle East & Others',
-    description: 'We also assist with documentation for UAE, Saudi Arabia, and many other destinations not listed here.',
-    requiredAmount: 'Contact us for specific requirements',
-    countries: [
-      { flag: '🇦🇪', name: 'UAE' },
-      { flag: '🇸🇦', name: 'Saudi Arabia' },
-      { flag: '🇶🇦', name: 'Qatar' },
-    ],
-    color: 'border-yellow-500/20 bg-yellow-500/5',
-    badge: 'yellow',
+    countries: 'UK, UAE, Turkey',
+    amount: '£3,000 – £6,000+',
+    requirement: 'Current account history, business income proof, and sponsor letters if applicable.',
+    description: 'The UK has specific "standard visitor" rules. We specialize in identifying weak points in your current account statements before you apply.',
   },
 ]
 
 export default function VisaTypesPage() {
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-80 h-80 bg-gold-500/10 top-0 right-0" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span className="section-badge mb-6 inline-flex">50+ Destinations</span>
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span className="section-badge mb-6 inline-flex">Requirements</span>
             <h1 className="section-title text-5xl sm:text-6xl mb-6">
-              Visa Types We{' '}
-              <span className="gold-text">Support</span>
+              Regional <span className="gold-text">Requirements</span>
             </h1>
-            <p className="section-subtitle mx-auto text-lg">
-              We have deep expertise across every major visa category and embassy. Whether you're going to Paris or Tokyo, we've got the right documentation for you.
+            <p className="section-subtitle mx-auto">
+              Different embassies have different expectations. We tailor your documentation to meet the exact standards of your destination.
             </p>
           </div>
         </section>
 
-        {/* Visa Regions */}
-        <section className="py-20 bg-navy-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            {regions.map((region) => (
-              <div key={region.region} id={region.region.toLowerCase().replace(/\s+/g, '-')} className={`glass-card p-8 border ${region.color} scroll-mt-28`}>
-                <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-                  <div className="lg:w-1/3">
-                    <h2 className="text-2xl font-bold font-serif text-white mb-2">{region.region}</h2>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-4">{region.description}</p>
-                    <div className="flex items-start gap-2 p-3 rounded-xl bg-gold-500/5 border border-gold-500/10">
-                      <Info size={14} className="text-gold-400 shrink-0 mt-0.5" />
-                      <span className="text-gold-300 text-xs">{region.requiredAmount}</span>
-                    </div>
+        {/* Visa Content */}
+        <section className="py-16 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {visaTypes.map((v) => (
+                <div key={v.region} className="glass-card-hover p-8 flex flex-col items-start border-card-border shadow-md">
+                  <div className="w-12 h-12 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-6">
+                    <MapPin size={24} className="text-gold-500" />
                   </div>
-                  <div className="lg:w-2/3">
-                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-                      {region.countries.map((country) => (
-                        <div key={country.name} className="text-center p-3 rounded-xl bg-white/3 border border-white/5 hover:border-gold-500/20 transition-all">
-                          <div className="text-2xl mb-1">{country.flag}</div>
-                          <div className="text-white text-xs font-medium leading-tight">{country.name}</div>
-                        </div>
-                      ))}
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-1">{v.region}</h2>
+                  <p className="text-muted text-xs font-bold uppercase tracking-widest mb-4">{v.countries}</p>
+                  
+                  <div className="bg-foreground/[0.03] w-full p-4 rounded-xl mb-6 border border-card-border">
+                    <div className="text-gold-600 dark:text-gold-400 font-bold text-lg mb-1">{v.amount}</div>
+                    <div className="text-muted text-[10px] font-bold uppercase tracking-widest">Recommended Balance</div>
+                  </div>
+
+                  <p className="text-foreground/90 text-sm leading-relaxed mb-6 font-medium">
+                    {v.description}
+                  </p>
+
+                  <div className="mt-auto space-y-3 w-full">
+                    <div className="flex items-start gap-2 text-xs text-muted font-semibold">
+                      <CheckCircle size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+                      {v.requirement}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <div className="mt-16 p-8 glass-card border border-gold-500/20 bg-gold-500/5 max-w-4xl mx-auto text-center">
+              <h3 className="text-foreground font-bold mb-3 flex items-center justify-center gap-2 uppercase tracking-wider text-sm">
+                <Info size={16} className="text-gold-500" />
+                A Note on Specific Amounts
+              </h3>
+              <p className="text-muted text-xs font-medium leading-relaxed uppercase tracking-wide">
+                These amounts are calculated based on our extensive experience with thousands of Sri Lankan travelers. 
+                Individual requirements may vary based on your trip duration, itinerary, and embassy updates. 
+                Always consult with our team for the most current advice before your application.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="py-12 bg-navy-950">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="glass-card p-6 border border-yellow-500/20">
-              <div className="flex gap-3 items-start">
-                <Info size={18} className="text-yellow-400 shrink-0 mt-0.5" />
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  <strong className="text-white">Disclaimer:</strong> Financial requirements shown are indicative based on general embassy guidelines and are subject to change. Actual requirements may vary based on your individual profile, length of stay, and embassy discretion. Always verify current requirements with the official embassy website.
-                </p>
-              </div>
-            </div>
-            <div className="text-center mt-10">
-              <p className="text-slate-400 text-sm mb-4">Don't see your destination? We cover many more countries.</p>
+        {/* CTA */}
+        <section className="py-16 bg-background border-t border-card-border text-center">
+          <div className="max-w-2xl mx-auto px-4">
+            <h2 className="text-2xl font-serif font-bold text-foreground mb-4">Not Sure What You Need?</h2>
+            <p className="text-muted mb-8 font-medium">
+              Every profile is unique. Get a personalized assessment of your financial standing today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">
-                Ask About Your Destination <ArrowRight size={18} />
+                Get Expert Advice <ArrowRight size={18} />
               </Link>
             </div>
           </div>
@@ -164,6 +130,6 @@ export default function VisaTypesPage() {
       </main>
       <Footer />
       <FloatingChat />
-    </>
+    </div>
   )
 }

@@ -1,253 +1,206 @@
-'use client'
-
-import { useState } from 'react'
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingChat from '@/components/FloatingChat'
-import { Mail, Phone, Clock, Send, CheckCircle, Loader2 } from 'lucide-react'
+import { Mail, MessageCircle, Clock, MapPin, Send, Facebook, CheckCircle } from 'lucide-react'
 
-const visaTypes = [
-  'Schengen Visa',
-  'US Tourist Visa (B-2)',
-  'UK Standard Visitor',
-  'Japan Tourist',
-  'Australia Tourist (600)',
-  'Canada Tourist',
-  'South Korea (C-3)',
-  'New Zealand Visitor',
-  'Other',
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    "Get in touch with ShowMoney Pro. We're here to help Sri Lankan travelers with their visa financial documentation and proof-of-funds requirements.",
+}
+
+const contactMethods = [
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp',
+    value: '+94 70 234 5678',
+    label: 'Typically replies in minutes',
+    href: 'https://wa.me/94702345678',
+    color: 'bg-emerald-500/10 text-emerald-500',
+  },
+  {
+    icon: Facebook,
+    title: 'Facebook Messenger',
+    value: '@showmoneypro',
+    label: 'Available 8am – 10pm IST',
+    href: 'https://m.me/showmoneypro',
+    color: 'bg-blue-500/10 text-blue-500',
+  },
+  {
+    icon: Mail,
+    title: 'Email',
+    value: 'hello@showmoneypro.com',
+    label: 'Response within 24 hours',
+    href: 'mailto:hello@showmoneypro.com',
+    color: 'bg-gold-500/10 text-gold-500',
+  },
 ]
 
-const WhatsAppIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-  </svg>
-)
-
-const MessengerIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.131 3.259 5.887-3.259-6.559 6.863z" />
-  </svg>
-)
-
 export default function ContactPage() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', phone: '', visaType: '', message: '' })
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    // Simulate form submission — replace with actual API call / Resend / EmailJS
-    await new Promise((r) => setTimeout(r, 1500))
-    setStatus('sent')
-  }
-
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-80 h-80 bg-gold-500/10 -top-10 -right-10" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-badge mb-6 inline-flex">Contact Us</span>
             <h1 className="section-title text-5xl sm:text-6xl mb-6">
-              Let's Get You{' '}
-              <span className="gold-text">Visa Ready</span>
+              Start Your <span className="gold-text">Visa Success</span>
             </h1>
-            <p className="section-subtitle mx-auto text-lg">
-              Tell us about your visa application and we'll get back to you within a few hours.
+            <p className="section-subtitle mx-auto">
+              Ready to get your show money documents in order? Our team is standing by to help you.
             </p>
           </div>
         </section>
 
-        <section className="py-20 bg-navy-900">
+        {/* Contact Content */}
+        <section className="py-16 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              {/* Contact Info */}
-              <div className="lg:col-span-2 space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold font-serif text-white mb-3">Reach Us Directly</h2>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Prefer to chat? Reach us through any of these channels and we'll respond quickly.
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              {/* Left: Contact Info */}
+              <div>
+                <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">Reach Us Directly</h2>
+                <p className="text-muted mb-10 font-medium">
+                  Prefer to chat? Reach us through any of these channels and we'll respond quickly.
+                </p>
 
                 <div className="space-y-4">
-                  <a href="https://wa.me/639000000000?text=Hi%2C%20I%27m%20interested%20in%20your%20Show%20Money%20service."
-                    id="contact-whatsapp"
-                    target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 glass-card-hover border border-[#25D366]/20">
-                    <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366] shrink-0">
-                      <WhatsAppIcon />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm">WhatsApp</div>
-                      <div className="text-slate-400 text-xs">+63 900 000 0000</div>
-                      <div className="text-[#25D366] text-xs mt-0.5">Typically replies in minutes</div>
-                    </div>
-                  </a>
-
-                  <a href="https://m.me/showmoneypro"
-                    id="contact-messenger"
-                    target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 glass-card-hover border border-[#0084FF]/20">
-                    <div className="w-12 h-12 rounded-xl bg-[#0084FF]/10 flex items-center justify-center text-[#0084FF] shrink-0">
-                      <MessengerIcon />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm">Facebook Messenger</div>
-                      <div className="text-slate-400 text-xs">@showmoneypro</div>
-                      <div className="text-[#0084FF] text-xs mt-0.5">Available 8am – 10pm PHT</div>
-                    </div>
-                  </a>
-
-                  <a href="mailto:hello@showmoneypro.com"
-                    id="contact-email"
-                    className="flex items-center gap-4 p-5 glass-card-hover border border-white/10">
-                    <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-400 shrink-0">
-                      <Mail size={20} />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm">Email</div>
-                      <div className="text-slate-400 text-xs">hello@showmoneypro.com</div>
-                      <div className="text-slate-500 text-xs mt-0.5">Response within 24 hours</div>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Office Hours */}
-                <div className="glass-card p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Clock size={16} className="text-gold-400" />
-                    <span className="text-white font-semibold text-sm">Office Hours</span>
-                  </div>
-                  <div className="space-y-1.5 text-sm">
-                    <div className="flex justify-between text-slate-300">
-                      <span>Monday – Friday</span>
-                      <span className="text-white font-medium">8:00 AM – 8:00 PM</span>
-                    </div>
-                    <div className="flex justify-between text-slate-300">
-                      <span>Saturday</span>
-                      <span className="text-white font-medium">9:00 AM – 6:00 PM</span>
-                    </div>
-                    <div className="flex justify-between text-slate-400">
-                      <span>Sunday</span>
-                      <span>Emergency only</span>
-                    </div>
-                    <div className="mt-2 text-xs text-slate-500">All times Philippine Standard Time (UTC+8)</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="lg:col-span-3">
-                <div className="glass-card p-8 sm:p-10">
-                  {status === 'sent' ? (
-                    <div className="text-center py-12">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
-                        <CheckCircle size={32} className="text-emerald-400" />
+                  {contactMethods.map((method) => (
+                    <a
+                      key={method.title}
+                      href={method.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-card-hover p-6 flex items-center gap-6 group border-card-border"
+                    >
+                      <div className={`w-14 h-14 rounded-2xl ${method.color} flex items-center justify-center shrink-0`}>
+                        <method.icon size={28} />
                       </div>
-                      <h3 className="text-white text-2xl font-bold font-serif mb-3">Message Sent!</h3>
-                      <p className="text-slate-400">Thank you for reaching out. Our team will contact you within a few hours.</p>
-                    </div>
-                  ) : (
-                    <form id="contact-form" onSubmit={handleSubmit} className="space-y-5">
-                      <h2 className="text-2xl font-bold font-serif text-white mb-6">Send Us a Message</h2>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
-                          <input
-                            id="contact-name"
-                            type="text"
-                            required
-                            placeholder="Your full name"
-                            className="input-field"
-                            value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-slate-300 mb-2">Email Address *</label>
-                          <input
-                            id="contact-email-field"
-                            type="email"
-                            required
-                            placeholder="your@email.com"
-                            className="input-field"
-                            value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-medium text-slate-300 mb-2">Phone / WhatsApp</label>
-                          <input
-                            id="contact-phone"
-                            type="tel"
-                            placeholder="+63 9xx xxx xxxx"
-                            className="input-field"
-                            value={form.phone}
-                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-slate-300 mb-2">Visa Type *</label>
-                          <select
-                            id="contact-visa-type"
-                            required
-                            className="input-field"
-                            value={form.visaType}
-                            onChange={(e) => setForm({ ...form, visaType: e.target.value })}
-                          >
-                            <option value="" disabled>Select visa type...</option>
-                            {visaTypes.map((v) => <option key={v} value={v}>{v}</option>)}
-                          </select>
-                        </div>
-                      </div>
-
                       <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-2">Message *</label>
-                        <textarea
-                          id="contact-message"
-                          required
-                          rows={5}
-                          placeholder="Tell us about your visa application, travel dates, and what you need help with..."
-                          className="input-field resize-none"
-                          value={form.message}
-                          onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        />
+                        <h3 className="font-bold text-foreground group-hover:text-gold-500 transition-colors uppercase tracking-wider text-sm">
+                          {method.title}
+                        </h3>
+                        <p className="text-lg font-bold text-foreground mb-1">{method.value}</p>
+                        <p className="text-xs text-muted font-semibold">{method.label}</p>
                       </div>
+                    </a>
+                  ))}
+                </div>
 
-                      <button
-                        id="contact-submit"
-                        type="submit"
-                        disabled={status === 'sending'}
-                        className="btn-primary w-full justify-center py-4"
-                      >
-                        {status === 'sending' ? (
-                          <><Loader2 size={18} className="animate-spin" /> Sending...</>
-                        ) : (
-                          <><Send size={18} /> Send Message</>
-                        )}
-                      </button>
-
-                      <p className="text-slate-500 text-xs text-center">
-                        By submitting, you agree to our Privacy Policy. We never share your information.
-                      </p>
-                    </form>
-                  )}
+                <div className="mt-10 p-8 glass-card border-card-border">
+                  <h3 className="font-bold text-foreground mb-6 flex items-center gap-2">
+                    <Clock size={20} className="text-gold-500" />
+                    Office Hours
+                  </h3>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between pb-2 border-b border-card-border">
+                      <span className="text-muted font-medium">Monday – Friday</span>
+                      <span className="text-foreground font-bold">8:00 AM – 8:00 PM</span>
+                    </div>
+                    <div className="flex justify-between pb-2 border-b border-card-border">
+                      <span className="text-muted font-medium">Saturday</span>
+                      <span className="text-foreground font-bold">9:00 AM – 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted font-medium">Sunday</span>
+                      <span className="text-foreground font-bold">Emergency only</span>
+                    </div>
+                    <p className="text-[10px] text-muted mt-4 font-bold uppercase tracking-widest text-center">
+                      All times Sri Lanka Standard Time (UTC+5:30)
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              {/* Right: Contact Form */}
+              <div className="glass-card p-8 sm:p-10 border-card-border shadow-2xl">
+                <h2 className="text-3xl font-serif font-bold mb-8 text-foreground">Send Us a Message</h2>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Full Name *</label>
+                      <input
+                        type="text"
+                        placeholder="Your full name"
+                        className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Email Address *</label>
+                      <input
+                        type="email"
+                        placeholder="your@email.com"
+                        className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Phone / WhatsApp</label>
+                    <input
+                      type="text"
+                      placeholder="+94 7x xxx xxxx"
+                      className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Visa Type *</label>
+                    <select className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium appearance-none">
+                      <option className="bg-background">Select visa type...</option>
+                      <option className="bg-background">Schengen Visa</option>
+                      <option className="bg-background">US Tourist Visa</option>
+                      <option className="bg-background">UK Visitor Visa</option>
+                      <option className="bg-background">Japan Tourist Visa</option>
+                      <option className="bg-background">Australia / NZ</option>
+                      <option className="bg-background">Other</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Message *</label>
+                    <textarea
+                      rows={4}
+                      placeholder="Tell us about your visa application, travel dates, and what you need help with..."
+                      className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" className="btn-primary w-full py-4 text-lg font-bold shadow-gold-500/20 shadow-lg">
+                    <Send size={18} />
+                    Send Message
+                  </button>
+
+                  <p className="text-center text-xs text-muted font-medium mt-6">
+                    By submitting, you agree to our Privacy Policy. We never share your information.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick FAQ / Note */}
+        <section className="py-16 bg-foreground/[0.02] border-y border-card-border text-center">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2 className="text-2xl font-serif font-bold text-foreground mb-4">Common Question</h2>
+            <div className="glass-card p-8 border-card-border">
+              <p className="text-foreground font-bold text-lg mb-2">"How fast can I get my documents?"</p>
+              <p className="text-muted font-medium">
+                Most documents are ready within <span className="text-gold-600 dark:text-gold-400 font-bold">24 to 48 hours</span> after you provide your information. 
+                Need it faster? Let us know on WhatsApp and we'll prioritize your request.
+              </p>
             </div>
           </div>
         </section>
       </main>
       <Footer />
       <FloatingChat />
-    </>
+    </div>
   )
 }

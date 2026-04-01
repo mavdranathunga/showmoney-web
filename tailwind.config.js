@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -32,6 +33,13 @@ module.exports = {
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
+        },
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        muted: 'var(--muted)',
+        card: {
+          DEFAULT: 'var(--card)',
+          border: 'var(--card-border)',
         },
       },
       fontFamily: {

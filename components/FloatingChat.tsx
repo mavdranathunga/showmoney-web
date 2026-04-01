@@ -32,13 +32,13 @@ export default function FloatingChat() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {/* Options Panel */}
       {isOpen && (
-        <div className="glass-card border border-white/10 p-4 w-56 shadow-2xl shadow-black/50 animate-slide-up">
+        <div className="glass-card border border-card-border p-4 w-56 shadow-2xl shadow-black/50 animate-slide-up">
           <p className="text-white font-semibold text-sm mb-1">Chat with us!</p>
           <p className="text-slate-400 text-xs mb-4">We typically reply within minutes.</p>
           <div className="flex flex-col gap-2">
             <a
-              id="whatsapp-chat-link"
-              href="https://wa.me/639000000000?text=Hi%2C%20I%27m%20interested%20in%20your%20Show%20Money%20service."
+              id="floating-cta-whatsapp"
+              href="https://wa.me/94702345678?text=Hi%2C%20I%27m%20interested%20in%20your%20Show%20Money%20service."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] hover:bg-[#25D366]/20 transition-all text-sm font-medium"

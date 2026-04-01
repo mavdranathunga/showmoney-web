@@ -1,53 +1,55 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
+import { ThemeProvider } from '@/components/theme-provider'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yourdomainhere.com'),
+  metadataBase: new URL('https://showmoney-web.vercel.app'),
   title: {
     default: 'ShowMoney Pro — Trusted Proof of Funds Agency for Visa Applications',
     template: '%s | ShowMoney Pro',
   },
   description:
-    'ShowMoney Pro helps Filipino travelers get trusted proof-of-funds documentation for visa applications — Schengen, US, UK, Japan, Australia & more. Fast, secure, and reliable.',
+    'ShowMoney Pro helps Sri Lankan travelers get trusted proof-of-funds documentation for visa applications — Schengen, US, UK, Japan, Australia & more. Fast, secure, and reliable.',
   keywords: [
-    'show money philippines',
-    'proof of funds visa',
-    'show money for schengen visa',
-    'show money for us visa',
-    'bank statement for visa',
-    'visa funds philippines',
-    'proof of financial capacity',
-    'tourist visa requirements philippines',
+    'show money sri lanka',
+    'bank statement for visa sri lanka',
+    'proof of funds agency',
+    'visa documentation services colombo',
+    'visa funds sri lanka',
+    'bank certificate for visa',
+    'tourist visa requirements sri lanka',
   ],
   authors: [{ name: 'ShowMoney Pro' }],
   creator: 'ShowMoney Pro',
   openGraph: {
-    type: 'website',
-    locale: 'en_PH',
-    url: 'https://yourdomainhere.com',
-    siteName: 'ShowMoney Pro',
     title: 'ShowMoney Pro — Trusted Proof of Funds Agency',
     description:
-      'Fast, secure proof-of-funds documentation for all visa types. Trusted by thousands of Filipino travelers.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ShowMoney Pro' }],
+      'Fast, secure proof-of-funds documentation for all visa types. Trusted by thousands of Sri Lankan travelers.',
+    url: 'https://showmoneypro.com',
+    siteName: 'ShowMoney Pro',
+    locale: 'en_LK',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShowMoney Pro — Proof of Funds Agency',
+    title: 'ShowMoney Pro — Trusted Proof of Funds Agency',
     description:
-      'Fast, secure proof-of-funds documentation for all visa types.',
-    images: ['/og-image.png'],
+      'Fast, secure proof-of-funds documentation for all visa types. Trusted by thousands of Sri Lankan travelers.',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -62,24 +64,57 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'FinancialService',
+              '@type': 'LocalBusiness',
               name: 'ShowMoney Pro',
-              description:
-                'Trusted proof-of-funds agency helping Filipino travelers with visa documentation.',
-              url: 'https://yourdomainhere.com',
-              areaServed: 'PH',
-              serviceType: 'Proof of Funds / Show Money Documentation',
-              priceRange: '$$',
-              contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'customer service',
-                availableLanguage: ['English', 'Filipino'],
+              image: 'https://showmoneypro.com/og-image.png',
+              '@id': 'https://showmoneypro.com',
+              url: 'https://showmoneypro.com',
+              telephone: '+94702345678',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Colombo',
+                addressCountry: 'LK',
               },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 6.9271,
+                longitude: 79.8612,
+              },
+              openingHoursSpecification: {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                  'Monday',
+                  'Tuesday',
+                  'Wednesday',
+                  'Thursday',
+                  'Friday',
+                  'Saturday',
+                ],
+                opens: '08:00',
+                closes: '20:00',
+              },
+              sameAs: [
+                'https://www.facebook.com/showmoneypro',
+                'https://www.instagram.com/showmoneypro',
+              ],
+              description:
+                'Trusted proof-of-funds agency helping Sri Lankan travelers with visa documentation.',
+              areaServed: 'LK',
+              knowsAbout: [
+                'Visa Financial Documentation',
+                'Proof of Funds',
+                'Bank Statements',
+              ],
+              availableLanguage: ['English', 'Sinhala', 'Tamil'],
             }),
           }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="font-inter" suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

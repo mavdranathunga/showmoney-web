@@ -46,17 +46,16 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section id="services-overview" className="py-24 bg-navy-900">
+    <section id="how-it-works-overview" className="py-24 bg-theme-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">Our Services</span>
-          <h2 className="section-title mb-4">
-            Everything You Need to{' '}
-            <span className="gold-text">Get Approved</span>
+          <h2 className="section-title mb-6">
+            Everything You Need to <span className="gold-text">Get Approved</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            We provide comprehensive financial documentation services tailored to every visa type and every Filipino traveler's unique situation.
+            We provide comprehensive financial documentation services tailored to every visa type and every Sri Lankan traveler's unique situation.
           </p>
         </div>
 
@@ -66,14 +65,14 @@ export default function ServicesOverview() {
             const Icon = service.icon
             return (
               <div key={service.title} className="glass-card-hover p-8">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 border border-white/5`}>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 border border-card-border`}>
                   <Icon size={26} className={service.iconColor} />
                 </div>
-                <h3 className="text-white font-bold text-xl mb-3">{service.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5">{service.description}</p>
+                <h3 className="text-foreground font-bold text-lg mb-3 leading-snug">{service.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{service.description}</p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
+                    <li key={f} className="flex items-center gap-2 text-sm text-foreground/80 font-medium">
                       <CheckCircle size={15} className="text-gold-500 shrink-0" />
                       {f}
                     </li>

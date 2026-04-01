@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yourdomainhere.com'
+  const baseUrl = 'https://showmoney-web.vercel.app'
 
   const staticPages = [
     { url: baseUrl, priority: 1.0, changeFrequency: 'weekly' as const },
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogSlugs = [
     'how-much-show-money-schengen-visa',
     'us-tourist-visa-bank-statement-tips',
-    'japan-visa-financial-requirements-philippines',
+    'japan-visa-financial-requirements-sri-lanka',
     'proof-of-funds-vs-show-money-difference',
     'uk-visa-financial-evidence-guide',
     'how-to-avoid-show-money-rejection',

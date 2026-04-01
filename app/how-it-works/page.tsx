@@ -72,34 +72,33 @@ export default function HowItWorksPage() {
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-80 h-80 bg-gold-500/10 -top-20 right-0" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="hero-glow w-96 h-96 bg-gold-500/10 -top-20 -left-20" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-badge mb-6 inline-flex">The Process</span>
-            <h1 className="section-title text-5xl sm:text-6xl mb-6">
-              Four Steps to{' '}
-              <span className="gold-text">Visa Ready</span>
+            <h1 className="section-title mb-6">
+              How It <span className="gold-text">Works</span>
             </h1>
-            <p className="section-subtitle mx-auto text-lg">
-              Getting your financial documentation in order has never been simpler. Here's exactly how we do it.
+            <p className="section-subtitle mx-auto">
+              A transparent, 4-step process to get your financial documentation ready for any embassy. No guesswork, no stress.
             </p>
           </div>
         </section>
 
         {/* Steps */}
-        <section className="py-20 bg-navy-900">
+        <section className="py-16 bg-background">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-8">
               {steps.map((step, idx) => {
                 const Icon = step.icon
                 return (
-                  <div key={step.step} className="glass-card p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-start">
+                  <div key={step.step} className="glass-card p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-start border-card-border">
                     {/* Step indicator */}
                     <div className="flex flex-col items-center shrink-0">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/5 border border-gold-500/20 flex items-center justify-center">
-                        <Icon size={28} className="text-gold-400" />
+                      <div className="w-16 h-16 rounded-2xl bg-foreground/5 border border-gold-500/20 flex items-center justify-center">
+                        <Icon size={28} className="text-gold-500" />
                       </div>
-                      <span className="text-[10px] font-bold text-gold-500/50 tracking-widest mt-2">STEP {step.step}</span>
+                      <span className="text-[10px] font-bold text-gold-500 tracking-widest mt-2">STEP {step.step}</span>
                       {idx < steps.length - 1 && (
                         <div className="w-px h-12 bg-gradient-to-b from-gold-500/30 to-transparent mt-3 hidden sm:block" />
                       )}
@@ -108,16 +107,16 @@ export default function HowItWorksPage() {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
-                        <h2 className="text-2xl font-bold font-serif text-white">{step.title}</h2>
+                        <h2 className="text-2xl font-bold font-serif text-foreground">{step.title}</h2>
                         <span className="section-badge text-xs py-1">
                           <Clock size={11} />
                           {step.time}
                         </span>
                       </div>
-                      <p className="text-slate-400 leading-relaxed mb-6">{step.description}</p>
+                      <p className="text-muted leading-relaxed mb-6">{step.description}</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {step.details.map((d) => (
-                          <div key={d} className="flex items-center gap-2 text-sm text-slate-300">
+                          <div key={d} className="flex items-center gap-2 text-sm text-foreground/80 font-medium">
                             <CheckCircle size={14} className="text-gold-500 shrink-0" />
                             {d}
                           </div>
@@ -132,7 +131,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* What to prepare */}
-        <section className="py-20 bg-navy-950">
+        <section className="py-20 bg-background border-t border-card-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="section-title mb-4">What to <span className="gold-text">Prepare</span></h2>
@@ -140,16 +139,16 @@ export default function HowItWorksPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                'Valid Philippine passport (photo of data page)',
+                'Valid Sri Lankan passport (photo of data page)',
                 'Target destination country',
                 'Estimated travel dates',
                 'Bank statements (latest 3–6 months)',
                 'Employment or business documents',
                 'Previous visa history (if any)',
               ].map((item) => (
-                <div key={item} className="glass-card p-4 flex items-start gap-3">
-                  <AlertCircle size={16} className="text-gold-400 shrink-0 mt-0.5" />
-                  <span className="text-slate-300 text-sm">{item}</span>
+                <div key={item} className="glass-card p-4 flex items-start gap-3 border-card-border">
+                  <AlertCircle size={16} className="text-gold-500 shrink-0 mt-0.5" />
+                  <span className="text-muted text-sm font-medium">{item}</span>
                 </div>
               ))}
             </div>

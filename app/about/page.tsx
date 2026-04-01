@@ -8,7 +8,7 @@ import { Shield, Heart, Zap, Users, ArrowRight, CheckCircle } from 'lucide-react
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about ShowMoney Pro — our story, our mission, and why thousands of Filipino travelers trust us for their visa financial documentation.',
+    'Learn about ShowMoney Pro — our story, our mission, and why thousands of Sri Lankan travelers trust us for their visa financial documentation.',
 }
 
 const values = [
@@ -30,48 +30,47 @@ const values = [
   {
     icon: Users,
     title: 'Expertise',
-    description: 'Our team has helped over 5,000 Filipino travelers across every major visa type and embassy. We know what works.',
+    description: 'Our team has helped over 5,000 Sri Lankan travelers across every major visa type and embassy. We know what works.',
   },
 ]
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-20 bg-navy-gradient relative overflow-hidden">
-          <div className="hero-glow w-80 h-80 bg-gold-500/10 -top-20 -right-20" />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <section className="py-20 bg-theme-gradient relative overflow-hidden">
+          <div className="hero-glow w-96 h-96 bg-gold-500/10 -top-20 -right-20" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="section-badge mb-6 inline-flex">Our Story</span>
             <h1 className="section-title text-5xl sm:text-6xl mb-6">
-              Built for Filipino{' '}
-              <span className="gold-text">Travelers</span>
+              Expertise Built on <span className="gold-text">Honesty</span>
             </h1>
-            <p className="section-subtitle mx-auto text-lg">
-              We started ShowMoney Pro because we saw too many Filipinos being denied visas not because they couldn't afford to travel — but because their financial documents weren't presented correctly.
+            <p className="section-subtitle mx-auto">
+              ShowMoney Pro was founded to help Sri Lankan travelers navigate the complex financial world of visa applications with clarity and confidence.
             </p>
           </div>
         </section>
 
-        {/* Story */}
-        <section className="py-20 bg-navy-900">
+        {/* Content */}
+        <section className="py-16 bg-background">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="glass-card p-10 sm:p-14">
+            <div className="glass-card p-10 sm:p-14 border-card-border shadow-md">
               <div className="max-w-3xl mx-auto">
                 <h2 className="section-title mb-6">Why We Exist</h2>
-                <div className="space-y-5 text-slate-400 leading-relaxed">
+                <div className="space-y-5 text-muted leading-relaxed font-medium transition-colors duration-300">
                   <p>
-                    Every year, thousands of qualified Filipino travelers are denied visas — not because they lack funds or genuine travel intentions — but because they don't know how to present their financial situation in the way embassies expect.
+                    Every year, thousands of qualified Sri Lankan travelers are denied visas — not because they lack funds or genuine travel intentions — but because they don't know how to present their financial situation in the way embassies expect.
                   </p>
                   <p>
-                    ShowMoney Pro was created to bridge that gap. We combine deep knowledge of embassy requirements with professional documentation skills to give every Filipino traveler the best possible financial presentation for their visa application.
+                    ShowMoney Pro was created to bridge that gap. We combine deep knowledge of embassy requirements with professional documentation skills to give every Sri Lankan traveler the best possible financial presentation for their visa application.
                   </p>
                   <p>
                     We believe that a well-prepared, honest, and well-presented application opens doors that would otherwise stay closed. That's not manipulation — that's professionalism.
                   </p>
                   <p>
-                    From first-time applicants heading to Japan to seasoned travelers applying for US B-2 visas, we have helped over 5,000 Filipinos travel to their dream destinations with confidence.
+                    From first-time applicants heading to Japan to seasoned travelers applying for US B-2 visas, we have helped over 5,000 Sri Lankans travel to their dream destinations with confidence.
                   </p>
                 </div>
               </div>
@@ -80,7 +79,7 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-20 bg-navy-950">
+        <section className="py-20 bg-background border-t border-card-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <h2 className="section-title mb-4">Our <span className="gold-text">Values</span></h2>
@@ -90,12 +89,12 @@ export default function AboutPage() {
               {values.map((v) => {
                 const Icon = v.icon
                 return (
-                  <div key={v.title} className="glass-card-hover p-8 text-center">
-                    <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-600/5 border border-gold-500/20 flex items-center justify-center mb-5">
-                      <Icon size={26} className="text-gold-400" />
+                  <div key={v.title} className="glass-card-hover p-8 text-center border-card-border transition-all hover:-translate-y-1">
+                    <div className="w-14 h-14 mx-auto rounded-2xl bg-foreground/5 border border-gold-500/20 flex items-center justify-center mb-5">
+                      <Icon size={26} className="text-gold-500" />
                     </div>
-                    <h3 className="text-white font-bold text-lg mb-3">{v.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{v.description}</p>
+                    <h3 className="text-foreground font-bold text-lg mb-3">{v.title}</h3>
+                    <p className="text-muted text-sm leading-relaxed">{v.description}</p>
                   </div>
                 )
               })}
@@ -104,7 +103,7 @@ export default function AboutPage() {
         </section>
 
         {/* By the numbers */}
-        <section className="py-20 bg-navy-900">
+        <section className="py-20 bg-background border-t border-card-border">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="section-title mb-14">ShowMoney Pro <span className="gold-text">By the Numbers</span></h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
@@ -114,21 +113,24 @@ export default function AboutPage() {
                 { value: '50+', label: 'Visa Types Covered' },
                 { value: '24hr', label: 'Avg. Delivery Time' },
               ].map((stat) => (
-                <div key={stat.label} className="glass-card p-8">
+                <div key={stat.label} className="glass-card p-8 border-card-border shadow-sm">
                   <div className="text-4xl font-bold gold-text font-serif mb-2">{stat.value}</div>
-                  <div className="text-slate-400 text-sm">{stat.label}</div>
+                  <div className="text-muted text-sm font-bold uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* What we don't do */}
-        <section className="py-16 bg-navy-950">
+        {/* Commitment section - High Contrast */}
+        <section className="py-16 bg-background border-t border-card-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="glass-card p-8 border border-emerald-500/20">
-              <h2 className="text-xl font-bold text-white mb-6 font-serif">Our Commitment to Honesty</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <div className="glass-card p-8 border border-emerald-500/20 bg-emerald-500/5 shadow-inner">
+              <h2 className="text-xl font-bold text-foreground mb-6 font-serif flex items-center gap-2">
+                <CheckCircle size={24} className="text-emerald-500" />
+                Our Commitment to Honesty
+              </h2>
+              <p className="text-muted text-sm leading-relaxed mb-6 font-medium">
                 ShowMoney Pro strictly provides legitimate documentation assistance. We do not offer, facilitate, or endorse any form of fraud, document falsification, or misrepresentation.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -138,8 +140,8 @@ export default function AboutPage() {
                   'We never create false employment records',
                   'We guide you to present facts — not fiction',
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-2 text-sm text-slate-300">
-                    <CheckCircle size={15} className="text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={item} className="flex items-start gap-2 text-sm text-foreground/80 font-bold">
+                    <CheckCircle size={15} className="text-emerald-500 shrink-0 mt-0.5" />
                     {item}
                   </div>
                 ))}
@@ -149,10 +151,10 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-navy-900 text-center">
+        <section className="py-16 bg-background border-t border-card-border text-center">
           <div className="max-w-2xl mx-auto px-4">
             <h2 className="section-title mb-4">Ready to Work With Us?</h2>
-            <p className="section-subtitle mx-auto mb-8">Join thousands of Filipino travelers who trust ShowMoney Pro for their visa documentation.</p>
+            <p className="section-subtitle mx-auto mb-8">Join thousands of Sri Lankan travelers who trust ShowMoney Pro for their visa documentation.</p>
             <Link href="/contact" className="btn-primary">
               Get Started Today <ArrowRight size={18} />
             </Link>
@@ -161,6 +163,6 @@ export default function AboutPage() {
       </main>
       <Footer />
       <FloatingChat />
-    </>
+    </div>
   )
 }
