@@ -26,7 +26,7 @@ const testimonials = [
     avatar: 'AC',
   },
   {
-    name: 'Carlo Mendoza',
+    name: 'Chamara Mendis',
     location: 'Galle',
     visa: 'UK Standard Visitor',
     rating: 5,
@@ -34,16 +34,16 @@ const testimonials = [
     avatar: 'CM',
   },
   {
-    name: 'Liza Flores',
-    location: 'Iloilo',
+    name: 'Lakshani Fernando',
+    location: 'Kurunegala',
     visa: 'Australia Tourist (600)',
     rating: 5,
     text: 'I didn\'t know how much show money I needed or how to present it properly. ShowMoney Pro handled everything and explained each step clearly. First-time applicant, first-time approval!',
     avatar: 'LF',
   },
   {
-    name: 'Ricky Tan',
-    location: 'Makati',
+    name: 'Ranjith Tennakoon',
+    location: 'Matara',
     visa: 'Canada Tourist Visa',
     rating: 5,
     text: 'Used them for my Canada visa. The consultation was eye-opening — they caught gaps in my application I wasn\'t aware of. Comprehensive, fast, and trustworthy team.',
@@ -53,7 +53,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-background">
+    <section id="testimonials" className="py-24 bg-background border-t border-card-border border-foreground/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">Client Stories</span>

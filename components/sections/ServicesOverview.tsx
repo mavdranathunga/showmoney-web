@@ -46,7 +46,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section id="how-it-works-overview" className="py-24 bg-theme-gradient">
+    <section id="how-it-works-overview" className="py-24 bg-theme-gradient border-t border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

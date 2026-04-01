@@ -9,7 +9,7 @@ export default function CTABanner() {
         <div className="relative overflow-hidden rounded-3xl bg-card border border-gold-500/20 p-12 sm:p-16 text-center shadow-2xl dark:shadow-black/50 shadow-gold-500/5">
           {/* Theme-aware background gradient inside card */}
           <div className="absolute inset-0 bg-gold-500/5 dark:bg-navy-900/40 pointer-events-none" />
-          
+
           {/* Glow accents */}
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl opacity-50 dark:opacity-30" />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gold-500/8 rounded-full blur-3xl opacity-50 dark:opacity-20" />

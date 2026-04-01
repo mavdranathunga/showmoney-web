@@ -27,7 +27,7 @@ export default function FAQSnippet() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
-    <section id="faq-snippet" className="py-24 bg-background">
+    <section id="faq-snippet" className="py-24 bg-background border-t border-card-border">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">FAQ</span>
@@ -52,9 +52,8 @@ export default function FAQSnippet() {
                 <span className="text-foreground font-semibold text-sm sm:text-base">{faq.q}</span>
                 <ChevronDown
                   size={18}
-                  className={`text-gold-400 shrink-0 transition-transform duration-300 ${
-                    openIdx === idx ? 'rotate-180' : ''
-                  }`}
+                  className={`text-gold-400 shrink-0 transition-transform duration-300 ${openIdx === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
               {openIdx === idx && (

@@ -34,7 +34,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works-overview" className="py-24 bg-theme-gradient border-y border-card-border/50">
+    <section id="how-it-works-overview" className="py-24 bg-theme-gradient border-t border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="section-badge mb-4 inline-flex">The Process</span>

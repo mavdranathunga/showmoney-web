@@ -8,22 +8,13 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg-theme transition-colors duration-500"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg-theme transition-colors duration-500 border-b border-card-border"
     >
       {/* Glowing orbs - Adjust based on theme */}
       <div className="hero-glow w-[600px] h-[600px] bg-gold-500/10 dark:bg-gold-500/8 -top-32 -right-32" />
       <div className="hero-glow w-[400px] h-[400px] bg-gold-500/5 dark:bg-navy-700/60 -bottom-20 -left-20" />
       <div className="hero-glow w-[300px] h-[300px] bg-gold-600/5 dark:bg-gold-600/6 top-1/2 left-1/3" />
 
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'linear-gradient(var(--foreground), transparent 1px), linear-gradient(90deg, var(--foreground), transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         {/* Badge */}

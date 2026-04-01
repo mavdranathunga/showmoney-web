@@ -66,7 +66,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="glass-card-hover mb-4 overflow-hidden border-card-border transition-all duration-300">
+    <div className="glass-card-hover mb-4 overflow-hidden border-t border-card-border transition-all duration-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-6 text-left flex items-center justify-between gap-4 group"

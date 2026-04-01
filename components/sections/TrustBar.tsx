@@ -8,7 +8,7 @@ const stats = [
 
 export default function TrustBar() {
   return (
-    <section className="py-8 bg-card/40 border-y border-card-border/50">
+    <section className="py-8 bg-card/40 border-y border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {stats.map((stat) => (
