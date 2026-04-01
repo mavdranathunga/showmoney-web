@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Facebook, Instagram, MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <div className="w-10 h-10 rounded-xl bg-gold-500 flex items-center justify-center overflow-hidden shadow-lg shadow-gold-500/20 group-hover:scale-110 transition-transform">
-                <Image src="/logo.png" alt="ShowMoney Pro" width={40} height={40} className="object-cover" />
+                <Image src="/logo.png" alt={SITE_CONFIG.name} width={40} height={40} className="object-cover" />
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="font-serif text-lg font-bold text-foreground">
@@ -26,9 +27,9 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {[
-                { icon: Facebook, href: 'https://facebook.com/showmoneypro', label: 'Facebook' },
-                { icon: Instagram, href: 'https://instagram.com/showmoneypro', label: 'Instagram' },
-                { icon: MessageCircle, href: 'https://m.me/showmoneypro', label: 'Messenger' },
+                { icon: Facebook, href: SITE_CONFIG.social.facebook, label: 'Facebook' },
+                { icon: Instagram, href: SITE_CONFIG.social.instagram, label: 'Instagram' },
+                { icon: MessageCircle, href: SITE_CONFIG.social.messenger, label: 'Messenger' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -106,21 +107,21 @@ export default function Footer() {
         {/* Contact Strip */}
         <div className="py-6 border-t border-card-border flex flex-col sm:flex-row gap-4 sm:gap-8 items-center justify-between">
           <div className="flex flex-wrap gap-6 text-sm text-muted">
-            <a href="mailto:hello@showmoneypro.com" className="flex items-center gap-2 hover:text-gold-400 transition-colors">
+            <a href={`mailto:${SITE_CONFIG.contact.email}`} className="flex items-center gap-2 hover:text-gold-400 transition-colors">
               <Mail size={14} />
-              hello@showmoneypro.com
+              {SITE_CONFIG.contact.email}
             </a>
-            <a href="https://wa.me/94702345678" className="flex items-center gap-2 hover:text-gold-400 transition-colors">
+            <a href={SITE_CONFIG.contact.whatsapp.link} className="flex items-center gap-2 hover:text-gold-400 transition-colors">
               <Phone size={14} />
-              +94 70 234 5678
+              {SITE_CONFIG.contact.phone.display}
             </a>
             <span className="flex items-center gap-2 text-muted/60">
               <MapPin size={14} />
-              Sri Lanka
+              {SITE_CONFIG.contact.address}
             </span>
           </div>
           <p className="text-muted/60 text-xs">
-            © {new Date().getFullYear()} ShowMoney Pro. All rights reserved.
+            © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
         </div>
       </div>

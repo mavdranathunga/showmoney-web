@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, MessageCircle } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export default function CTABanner() {
   return (
@@ -31,7 +32,7 @@ export default function CTABanner() {
               </Link>
               <a
                 id="cta-whatsapp"
-                href="https://wa.me/94702345678?text=Hi%2C%20I%27m%20interested%20in%20your%20Show%20Money%20service."
+                href={`${SITE_CONFIG.contact.whatsapp.link}?text=${encodeURIComponent(SITE_CONFIG.contact.whatsapp.defaultMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary text-base px-8 py-4"

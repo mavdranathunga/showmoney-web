@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { Menu, X, ChevronDown, ChevronRight, Phone, MessageCircle } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
 import { useTheme } from 'next-themes'
+import { SITE_CONFIG } from '@/lib/constants'
 
 const navLinks = [
   { label: 'Services', href: '/services' },
@@ -48,7 +49,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-gold-500/30 shadow-lg shadow-gold-500/10">
-              <Image src="/logo.png" alt="ShowMoney Pro Logo" width={40} height={40} className="object-cover" />
+              <Image src="/logo.png" alt={`${SITE_CONFIG.name} Logo`} width={40} height={40} className="object-cover" />
             </div>
             <div className="flex flex-col leading-tight">
               <span className={`font-serif text-lg font-bold transition-colors ${shouldShowWhite ? 'text-white' : 'text-foreground'} group-hover:text-gold-400`}>

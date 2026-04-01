@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { MessageCircle, X } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/constants'
 
 // WhatsApp icon SVG
 const WhatsAppIcon = () => (
@@ -38,7 +39,7 @@ export default function FloatingChat() {
           <div className="flex flex-col gap-2">
             <a
               id="floating-cta-whatsapp"
-              href="https://wa.me/94702345678?text=Hi%2C%20I%27m%20interested%20in%20your%20Show%20Money%20service."
+              href={`${SITE_CONFIG.contact.whatsapp.link}?text=${encodeURIComponent(SITE_CONFIG.contact.whatsapp.defaultMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] hover:bg-[#25D366]/20 transition-all text-sm font-medium"
@@ -48,7 +49,7 @@ export default function FloatingChat() {
             </a>
             <a
               id="messenger-chat-link"
-              href="https://m.me/showmoneypro"
+              href={SITE_CONFIG.social.messenger}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 rounded-xl bg-[#0084FF]/10 border border-[#0084FF]/20 text-[#0084FF] hover:bg-[#0084FF]/20 transition-all text-sm font-medium"

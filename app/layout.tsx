@@ -1,41 +1,27 @@
 import type { Metadata } from 'next'
 import './globals.css'
-
 import { ThemeProvider } from '@/components/theme-provider'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://showmoney-web.vercel.app'),
-  title: {
-    default: 'ShowMoney Pro — Trusted Proof of Funds Agency for Visa Applications',
-    template: '%s | ShowMoney Pro',
-  },
-  description:
-    'ShowMoney Pro helps Sri Lankan travelers get trusted proof-of-funds documentation for visa applications — Schengen, US, UK, Japan, Australia & more. Fast, secure, and reliable.',
-  keywords: [
-    'show money sri lanka',
-    'bank statement for visa sri lanka',
-    'proof of funds agency',
-    'visa documentation services colombo',
-    'visa funds sri lanka',
-    'bank certificate for visa',
-    'tourist visa requirements sri lanka',
-  ],
-  authors: [{ name: 'ShowMoney Pro' }],
-  creator: 'ShowMoney Pro',
+  metadataBase: new URL(SITE_CONFIG.baseUrl),
+  title: SITE_CONFIG.metadata.title,
+  description: SITE_CONFIG.metadata.description,
+  keywords: SITE_CONFIG.metadata.keywords,
+  authors: [{ name: SITE_CONFIG.name }],
+  creator: SITE_CONFIG.name,
   openGraph: {
-    title: 'ShowMoney Pro — Trusted Proof of Funds Agency',
-    description:
-      'Fast, secure proof-of-funds documentation for all visa types. Trusted by thousands of Sri Lankan travelers.',
-    url: 'https://showmoneypro.com',
-    siteName: 'ShowMoney Pro',
+    title: SITE_CONFIG.metadata.title.default,
+    description: SITE_CONFIG.metadata.description,
+    url: SITE_CONFIG.baseUrl,
+    siteName: SITE_CONFIG.name,
     locale: 'en_LK',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShowMoney Pro — Trusted Proof of Funds Agency',
-    description:
-      'Fast, secure proof-of-funds documentation for all visa types. Trusted by thousands of Sri Lankan travelers.',
+    title: SITE_CONFIG.metadata.title.default,
+    description: SITE_CONFIG.metadata.description,
   },
   robots: {
     index: true,
@@ -65,11 +51,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              name: 'ShowMoney Pro',
-              image: 'https://showmoneypro.com/og-image.png',
-              '@id': 'https://showmoneypro.com',
-              url: 'https://showmoneypro.com',
-              telephone: '+94702345678',
+              name: SITE_CONFIG.name,
+              image: `${SITE_CONFIG.baseUrl}/og-image.png`,
+              '@id': SITE_CONFIG.baseUrl,
+              url: SITE_CONFIG.baseUrl,
+              telephone: SITE_CONFIG.contact.phone.url,
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Colombo',
@@ -94,11 +80,10 @@ export default function RootLayout({
                 closes: '20:00',
               },
               sameAs: [
-                'https://www.facebook.com/showmoneypro',
-                'https://www.instagram.com/showmoneypro',
+                SITE_CONFIG.social.facebook,
+                SITE_CONFIG.social.instagram,
               ],
-              description:
-                'Trusted proof-of-funds agency helping Sri Lankan travelers with visa documentation.',
+              description: SITE_CONFIG.metadata.description,
               areaServed: 'LK',
               knowsAbout: [
                 'Visa Financial Documentation',

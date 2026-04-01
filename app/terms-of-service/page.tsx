@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -51,7 +52,7 @@ export default function TermsPage() {
               },
               {
                 title: '8. Contact',
-                body: 'For questions about these Terms of Service, contact us at: hello@showmoneypro.com',
+                body: `For questions about these Terms of Service, contact us at: ${SITE_CONFIG.contact.email}`,
               },
             ].map((section) => (
               <div key={section.title}>

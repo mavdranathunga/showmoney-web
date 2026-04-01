@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowRight, Shield, CheckCircle, Star } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export default function Hero() {
   return (
@@ -29,7 +30,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 mb-8 animate-fade-in">
           <span className="section-badge border-gold-500/20 bg-gold-500/5">
             <Star size={12} className="text-gold-500 fill-gold-500" />
-            <span className="text-gold-600 dark:text-gold-400 font-bold">Trusted by 5,000+ Sri Lankan Travelers</span>
+            <span className="text-gold-600 dark:text-gold-400 font-bold">Trusted by {SITE_CONFIG.stats.clients} Sri Lankan Travelers</span>
           </span>
         </div>
 
@@ -58,7 +59,7 @@ export default function Hero() {
           {[
             { icon: Shield, text: 'Bank-Level Security' },
             { icon: CheckCircle, text: '24–48 Hour Turnaround' },
-            { icon: Star, text: '4.9★ Client Rating' },
+            { icon: Star, text: `${SITE_CONFIG.stats.rating} Client Rating` },
           ].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-2 text-sm text-muted font-semibold">
               <Icon size={16} className="text-gold-500" />

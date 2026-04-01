@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingChat from '@/components/FloatingChat'
+import { SITE_CONFIG } from '@/lib/constants'
 
 const faqs = [
   {
@@ -153,7 +154,7 @@ export default function FAQContent() {
               We're here to help. Reach out to our specialist team on WhatsApp or via email.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/94702345678" className="btn-primary">
+              <a href={`${SITE_CONFIG.contact.whatsapp.link}?text=${encodeURIComponent(SITE_CONFIG.contact.whatsapp.defaultMessage)}`} className="btn-primary">
                 Chat on WhatsApp
               </a>
               <Link href="/contact" className="btn-secondary">

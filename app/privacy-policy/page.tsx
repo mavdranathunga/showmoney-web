@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -39,7 +40,7 @@ export default function PrivacyPolicyPage() {
               },
               {
                 title: '5. Data Retention',
-                body: 'We retain your personal information for as long as necessary to provide our services and comply with our legal obligations. You may request deletion of your data at any time by contacting us at hello@showmoneypro.com.',
+                body: `We retain your personal information for as long as necessary to provide our services and comply with our legal obligations. You may request deletion of your data at any time by contacting us at ${SITE_CONFIG.contact.email}.`,
               },
               {
                 title: '6. Your Rights',
@@ -47,7 +48,7 @@ export default function PrivacyPolicyPage() {
               },
               {
                 title: '7. Contact Us',
-                body: 'If you have any questions about this Privacy Policy, please contact us at: hello@showmoneypro.com',
+                body: `If you have any questions about this Privacy Policy, please contact us at: ${SITE_CONFIG.contact.email}`,
               },
             ].map((section) => (
               <div key={section.title}>

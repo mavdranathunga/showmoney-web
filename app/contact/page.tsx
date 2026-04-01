@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingChat from '@/components/FloatingChat'
 import { Mail, MessageCircle, Clock, MapPin, Send, Facebook, CheckCircle } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -14,25 +15,25 @@ const contactMethods = [
   {
     icon: MessageCircle,
     title: 'WhatsApp',
-    value: '+94 70 234 5678',
+    value: SITE_CONFIG.contact.phone.display,
     label: 'Typically replies in minutes',
-    href: 'https://wa.me/94702345678',
+    href: SITE_CONFIG.contact.whatsapp.link,
     color: 'bg-emerald-500/10 text-emerald-500',
   },
   {
     icon: Facebook,
     title: 'Facebook Messenger',
     value: '@showmoneypro',
-    label: 'Available 8am – 10pm IST',
-    href: 'https://m.me/showmoneypro',
+    label: `Available 8am – 10pm IST`,
+    href: SITE_CONFIG.social.messenger,
     color: 'bg-blue-500/10 text-blue-500',
   },
   {
     icon: Mail,
     title: 'Email',
-    value: 'hello@showmoneypro.com',
+    value: SITE_CONFIG.contact.email,
     label: 'Response within 24 hours',
-    href: 'mailto:hello@showmoneypro.com',
+    href: `mailto:${SITE_CONFIG.contact.email}`,
     color: 'bg-gold-500/10 text-gold-500',
   },
 ]
