@@ -125,7 +125,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         placeholder="Your full name"
-                        className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                        className="input-field"
                         required
                       />
                     </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         placeholder="your@email.com"
-                        className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                        className="input-field"
                         required
                       />
                     </div>
@@ -145,13 +145,13 @@ export default function ContactPage() {
                     <input
                       type="text"
                       placeholder="+94 7x xxx xxxx"
-                      className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                      className="input-field"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-foreground/80 uppercase tracking-wider">Visa Type *</label>
-                    <select className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium appearance-none">
+                    <select className="input-field appearance-none cursor-pointer">
                       <option className="bg-background">Select visa type...</option>
                       <option className="bg-background">Schengen Visa</option>
                       <option className="bg-background">US Tourist Visa</option>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                     <textarea
                       rows={4}
                       placeholder="Tell us about your visa application, travel dates, and what you need help with..."
-                      className="w-full bg-foreground/5 border-card-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500/40 text-foreground font-medium"
+                      className="input-field min-h-[120px]"
                       required
                     ></textarea>
                   </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
             <div className="glass-card p-8 border-card-border">
               <p className="text-foreground font-bold text-lg mb-2">"How fast can I get my documents?"</p>
               <p className="text-muted font-medium">
-                Most documents are ready within <span className="text-gold-600 dark:text-gold-400 font-bold">24 to 48 hours</span> after you provide your information. 
+                Most documents are ready within <span className="text-gold-600 dark:text-gold-400 font-bold">24 to 48 hours</span> after you provide your information.
                 Need it faster? Let us know on WhatsApp and we'll prioritize your request.
               </p>
             </div>

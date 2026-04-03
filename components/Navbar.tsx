@@ -38,11 +38,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-card-border ${scrolled
           ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-card-border'
           : isHome ? 'bg-transparent' : 'bg-background/95 backdrop-blur-xl border-b border-card-border'
-      }`}
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -62,9 +61,9 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
+              <Link
+                key={link.href}
+                href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-gold-500 ${shouldShowWhite ? 'text-white/80' : 'text-muted'}`}
               >
                 {link.label}
